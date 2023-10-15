@@ -2,19 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage("Build"){
+        stage("Build zip file"){
             steps{
-                echo "Hello Build"
-            }
-        }
-        stage("Test"){
-            steps{
-                echo "Hello Test"
-            }
-        }
-        stage("Deploy"){
-            steps{
-                echo "Hello Deploy"
+                zip middlewareScripts${BUILD_NUMBER}.zip * --exclude Jenkinsfile
             }
         }
     }
